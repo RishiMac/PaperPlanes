@@ -8,7 +8,6 @@ public class Bird : Enemy
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
@@ -31,7 +30,7 @@ public class Bird : Enemy
 
         if (other.gameObject.CompareTag("Player"))
         {
-            ResourceBar.instance.collision(damage);
+            other.collider.GetComponent<Plane>().takeDamage(damage);
         }
 
     }
