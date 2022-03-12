@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7083443932703044593}
   - component: {fileID: 6656105786149692039}
   - component: {fileID: 8736332158319296927}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rainGenerator
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -27,7 +27,7 @@ Transform:
   m_GameObject: {fileID: 2278500822168196763}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 0.125, y: 0.7, z: 1}
+  m_LocalScale: {x: 0.1, y: 0.5, z: 1}
   m_Children: []
   m_Father: {fileID: 8832320806851830351}
   m_RootOrder: 0
@@ -47,7 +47,7 @@ ParticleSystem:
   ringBufferMode: 0
   ringBufferLoopRange: {x: 0, y: 1}
   looping: 1
-  prewarm: 0
+  prewarm: 1
   playOnAwake: 1
   useUnscaledTime: 0
   autoRandomSeed: 1
@@ -665,7 +665,7 @@ ParticleSystem:
     boxThickness: {x: 0, y: 0, z: 0}
     radiusThickness: 1
     donutRadius: 0.2
-    m_Position: {x: 0, y: 0, z: 0}
+    m_Position: {x: 0, y: -1, z: 0}
     m_Rotation: {x: 0, y: 0, z: 0}
     m_Scale: {x: 12, y: 1, z: 1}
     placementMode: 0
@@ -4814,7 +4814,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8832320806815699732}
   - component: {fileID: 8832320805850911562}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: RainCloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4862,7 +4862,7 @@ GameObject:
   - component: {fileID: 8832320806322198632}
   - component: {fileID: 8832320806322198634}
   - component: {fileID: 3875677090935988338}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: cloud
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -4922,7 +4922,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -5644267635511754348, guid: e55887559b9f8c546aceaf289a8231c7, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
@@ -4977,7 +4977,6 @@ MonoBehaviour:
   animator: {fileID: 0}
   speedup: 4
   cloud: {fileID: 0}
-  anim: {fileID: 3875677090935988338}
 --- !u!95 &3875677090935988338
 Animator:
   serializedVersion: 3
@@ -5008,7 +5007,7 @@ GameObject:
   - component: {fileID: 8832320806851830351}
   - component: {fileID: 8832320806851830349}
   - component: {fileID: 8832320806851830350}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: rain
   m_TagString: Untagged
   m_Icon: {fileID: 0}

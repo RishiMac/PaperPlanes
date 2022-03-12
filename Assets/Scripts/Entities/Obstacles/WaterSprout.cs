@@ -11,7 +11,6 @@ public class WaterSprout : Obstacle
     void Start()
     {
         Physics2D.IgnoreLayerCollision(6, 7, true);
-        Physics2D.IgnoreLayerCollision(6, 8, true);
         anim.SetBool("dying", false);
     }
 
@@ -26,10 +25,14 @@ public class WaterSprout : Obstacle
         {
             if (wind.getForce() > 2)
             {
-                anim.SetBool("dying", true);
-                //Play animation before destroying object
-                Destroy(this.gameObject, 0.7f);
+                die();
             }
-        }
+        } 
+    }
+    public void die()
+    {
+        //get rid of collider
+        Destroy(GetComponent<Collider2D>());
+        anim.SetBool("dying", true);
     }
 }

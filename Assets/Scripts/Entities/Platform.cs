@@ -13,6 +13,8 @@ public class Platform : Entity
 {
     private Platform instance;
     public GameObject button;
+    public double finalYPosition = 2.50;
+    public float fadeSpeed = 1f;
 
     private void Awake() 
     {
@@ -29,8 +31,21 @@ public class Platform : Entity
     }
 
     // Update is called once per frame
+    //If plane is in range of platform, move up and fade in until it hits the final position
+    //resets each time plane restarts at checkpoint
     void Update()
+
     {
+        bool inRange = instance.GetComponent<Renderer>().enabled;
+        
+        if (inRange && transform.position.y < finalYPosition) { 
+            transform.Translate((Vector2.up * (Time.deltaTime * 5)));
+            StartCoroutine(FadeInIObject());
+        } else {
+            Vector2 newPosition = new Vector2(transform.position.x, transform.position.y);
+            transform.position = newPosition;
+
+        }
     }
 
     // Triggers when plane is on platform
@@ -55,6 +70,22 @@ public class Platform : Entity
         Destroy(this.gameObject); //Destorys the Platform
         button.SetActive(false); //Button disappears.
     }
+    
+    //slowly fades object in
+    //first sets transparency to 0
+    //while object is not fully transparent, gradually change transparency
+    public IEnumerator FadeInIObject()
+    {
+        Color objColor = instance.GetComponent<Renderer>().material.color;
+        objColor.a = 0;
 
+        while (objColor.a < 1) { 
+            float fadeAmount = objColor.a + (fadeSpeed * Time.deltaTime * 100);
+            objColor = new Color(objColor.r, objColor.g, objColor.b, fadeAmount);
+            instance.GetComponent<Renderer>().material.color = objColor;
+            yield return null;
+        }
+
+    }
 
 }
